@@ -2,6 +2,9 @@ from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
 from api.routes.events import event as event_router
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def get_application() -> FastAPI:
     application = FastAPI(

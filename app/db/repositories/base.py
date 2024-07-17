@@ -2,7 +2,12 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres:pgadmin@localhost/events_db"
+from core.environment import get_environment_variables
+
+# Runtime Environment Configuration
+env = get_environment_variables()
+
+SQLALCHEMY_DATABASE_URL = env.DATABASE_URL
 
 # Create SQLAlchemy engine
 engine = create_engine(SQLALCHEMY_DATABASE_URL)

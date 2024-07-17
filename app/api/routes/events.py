@@ -15,11 +15,11 @@ async def get_events(
     ends_at: datetime = Query(default=datetime.now(), description="Return only events that finishes before this date")
 ):
     # Fetch events from external provider
-    events = fetch_events_from_provider(start_at=starts_at, ends_at=ends_at)
+    # events = fetch_events_from_provider(start_at=starts_at, ends_at=ends_at)
     
-    # If events were successfully fetched, store/update them in the database
-    if events:
-        events_repo.create_or_update_events(events)
+    # # If events were successfully fetched, store/update them in the database
+    # if events:
+    #     events_repo.create_or_update_events(events)
     
     # Retrieve events from the database
     filtered_events = events_repo.get_events_by_date_range(starts_at, ends_at)
